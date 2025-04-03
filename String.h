@@ -10,6 +10,7 @@ private:
 public: 
   String();
   ~String();
+  String(char* src);
   int GetLength();
   void SetLength(int length);
 };
