@@ -8,5 +8,7 @@ private:
 
 public: 
   Node();
+  Node(String str);
   ~Node();
+  void SetNext(Node* pNext);
 };

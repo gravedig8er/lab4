@@ -9,8 +9,10 @@ private:
 
 public: 
   String();
+  String(const String& other);
   ~String();
   String(char* src);
   int GetLength();
   void SetLength(int length);
+  void operator = (const String& other);
 };

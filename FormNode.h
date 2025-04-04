@@ -1,5 +1,6 @@
 #pragma once
 #include "Node.h"
+#include "String.h"
 
 class FormNode {
 private: 
@@ -11,4 +12,5 @@ private:
 public: 
   FormNode();
   ~FormNode();
+  void push_back(String str);
 };
