@@ -10,5 +10,5 @@ private:
 public: 
   List();
   ~List();
-  // тут должно быть взаимодействие с остальными элементами
+  void push_back(FormNode& temp);
 };

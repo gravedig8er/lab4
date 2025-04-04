@@ -11,6 +11,11 @@ private:
   FormNode* pNext; 
 public: 
   FormNode();
+  FormNode(const FormNode& other);
   ~FormNode();
   void push_back(String str);
+  void reset();
+  void SetNext(FormNode* pNext);
+  FormNode* GetNext();
+  bool empty();
 };

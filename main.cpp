@@ -3,6 +3,7 @@
 #include "List.h"
 #include "String.h"
 #include "FormNode.h"
+#include "MyFunctions.h"
 
 int main() {
   std::fstream input, out; 
@@ -27,9 +28,9 @@ int main() {
         tempS[N] = '\0';
         String str(tempS);
         tempNode.push_back(str); // записали в список-строку элемент
- //=========
+ 
         counter = 0;
-        reset(tempS); // сбрасываем строку
+        memset(tempS, N+1);
       }
     }
     else { // переход на следующую строку
@@ -38,12 +39,12 @@ int main() {
         String str(tempS);
         tempNode.push_back(str); // записуали в список-строку
         
-        reset(tempS); // сбрасываем строк
+        memset(tempS, N+1);
         counter = 0; // обнулили так как начина
       }
 
       lst.push_back(tempNode);
-      reset(tempNode); // сбрасываем список-строку
+      tempNode.reset(); // сбрасываем список-строку
     }
   }
 
@@ -54,7 +55,7 @@ int main() {
   }
   if (!tempNode.empty()) {  // Если в tempNode есть данные
       lst.push_back(tempNode);
-      reset(tempNode);
+      tempNode.reset();
   }
 
 

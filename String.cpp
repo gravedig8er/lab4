@@ -40,6 +40,7 @@ String::String(const String& other) {
 }
 
 void String::operator = (const String& other) {
+  if (this == &other) return;
   memset(line, N+1);
   if (this == &other) return;
   this->length = other.length; 
@@ -48,4 +49,9 @@ void String::operator = (const String& other) {
   for (int i = 0; i < other.length; i++) {
     this->line[i] = other.line[i];
   }
+}
+
+void String::reset() {
+  memset(line, N+1);
+  this->length = 0;
 }
