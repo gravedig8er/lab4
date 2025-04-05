@@ -4,6 +4,7 @@
 #include "String.h"
 #include "FormNode.h"
 #include "MyFunctions.h"
+#include "config.h"
 
 int main() {
   std::fstream input, out; 
@@ -17,47 +18,46 @@ int main() {
 
   FormNode tempNode; 
 
-  char tempS[N+1] = {};
-  while (!input.eof()) { // находимся в файле 
-    input.get(ch); 
+  char tempS[N + 1] = {};
 
-    if (!input.eof() && ch != '\n') { // пока мы на нужной строке нужно считывать порцию в N символов 
-      if (counter < N) tempS[counter++] = ch; 
+  while (input.get(ch)) {
+    if (ch == '\r') continue; 
 
-      if (counter == N) { // блок заполнился
-        tempS[N] = '\0';
-        String str(tempS);
-        tempNode.push_back(str); // записали в список-строку элемент
- 
-        counter = 0;
-        memset(tempS, N+1);
-      }
-    }
-    else { // переход на следующую строку
-      if (counter > 0) { // если в строке что-то есть
+    if (ch == '\n') {
+      if (counter > 0) {
         tempS[counter] = '\0';
-        String str(tempS);
-        tempNode.push_back(str); // записуали в список-строку
-        
-        memset(tempS, N+1);
-        counter = 0; // обнулили так как начина
+        tempNode.push_back(String(tempS));
+        clear(tempS, N + 1);
+        counter = 0;
       }
 
-      lst.push_back(tempNode);
-      tempNode.reset(); // сбрасываем список-строку
+      lst.push_back(tempNode); // даже если пустой
+      tempNode.reset();
+    } 
+    else {
+        tempS[counter++] = ch;
+
+        if (counter == N) {
+          tempS[N] = '\0';
+          tempNode.push_back(String(tempS));
+          clear(tempS, N + 1);
+          counter = 0;
+        }
     }
   }
-
-  if (counter > 0) { // для корректной записи последней строки
+  // добавим остатки
+  if (counter > 0) {
     tempS[counter] = '\0';
-    String str(tempS);
-    tempNode.push_back(str);
-  }
-  if (!tempNode.empty()) {  // Если в tempNode есть данные
-      lst.push_back(tempNode);
-      tempNode.reset();
+    tempNode.push_back(String(tempS));
+    clear(tempS, N + 1);
   }
 
+  lst.push_back(tempNode);
+
+  out.open("output.txt", std::ios::out);
+  if (!out.is_open()) {std::cout << "Check output file\n"; return 0;}
+
+  Print(out, lst);
 
   input.close();
   return 0;

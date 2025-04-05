@@ -1,0 +1,13 @@
+asd -> asd -> asd -> asd -> nullptr
+	\|/
+das -> das -> das -> d -> nullptr
+	\|/
+ -> nullptr
+	\|/
+ -> nullptr
+	\|/
+sda -> sda -> sda -> sda -> sda -> sda -> sd -> nullptr
+	\|/
+asd -> asd -> asd -> nullptr
+	\|/
+nullptr

@@ -18,4 +18,5 @@ public:
   void SetNext(FormNode* pNext);
   FormNode* GetNext();
   bool empty();
+  Node* GetHead() const { return head; }
 };

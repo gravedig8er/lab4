@@ -1,9 +1,10 @@
 #include "FormNode.h"
 #include "Node.h"
+#include "config.h"
 
 FormNode::FormNode(): head{nullptr}, cur{nullptr}, tail{nullptr}, pNext{nullptr} {}
 
-FormNode::FormNode(const FormNode& other): head{nullptr}, tail{nullptr} {
+FormNode::FormNode(const FormNode& other): head{nullptr}, tail{nullptr}, pNext{nullptr} {
   Node* current = other.head; 
   while (current) {
     this->push_back(current->GetData());

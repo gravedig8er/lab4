@@ -1,6 +1,6 @@
 #pragma once
+#include "config.h"
 
-const int N = 20; 
 
 class String {
 private: 
@@ -16,4 +16,5 @@ public:
   void SetLength(int length);
   void operator = (const String& other);
   void reset(); 
-};
+  const char* GetLine() const { return line; }
+}; 

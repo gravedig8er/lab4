@@ -1,5 +1,6 @@
 #include "Node.h"
 #include "String.h"
+#include "config.h"
 
 Node::Node(): string(), pNext{nullptr} {}
 

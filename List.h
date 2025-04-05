@@ -9,6 +9,8 @@ private:
 
 public: 
   List();
+  List(const List& other);
   ~List();
   void push_back(FormNode& temp);
+  FormNode* GetHead() const { return head;}
 };
