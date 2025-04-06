@@ -57,6 +57,11 @@ int main() {
   out.open("output.txt", std::ios::out);
   if (!out.is_open()) {std::cout << "Check output file\n"; return 0;}
 
+  out << "List before sort\n\n";
+  Print(out, lst);  
+  lst.sort();
+  out << "\n==================\n";
+  out << "\n\nList after sort\n\n";
   Print(out, lst);
 
   input.close();

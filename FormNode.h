@@ -17,6 +17,9 @@ public:
   void reset();
   void SetNext(FormNode* pNext);
   FormNode* GetNext();
-  bool empty();
-  Node* GetHead() const { return head; }
+  bool empty() const;
+  bool lessThan(const FormNode& other) const;
+  int getTotalLength() const;
+  void operator=(const FormNode& other);
+  Node* GetHead() const;
 };

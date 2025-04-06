@@ -1,13 +1,33 @@
-asd -> asd -> asd -> asd -> nullptr
+List before sort
+
+ac -> nullptr
 	\|/
-das -> das -> das -> d -> nullptr
+aa -> nullptr
 	\|/
- -> nullptr
+b -> nullptr
 	\|/
- -> nullptr
+d -> nullptr
 	\|/
-sda -> sda -> sda -> sda -> sda -> sda -> sd -> nullptr
+c -> nullptr
 	\|/
-asd -> asd -> asd -> nullptr
+e -> nullptr
+	\|/
+nullptr
+==================
+
+
+List after sort
+
+b -> nullptr
+	\|/
+c -> nullptr
+	\|/
+d -> nullptr
+	\|/
+e -> nullptr
+	\|/
+aa -> nullptr
+	\|/
+ac -> nullptr
 	\|/
 nullptr

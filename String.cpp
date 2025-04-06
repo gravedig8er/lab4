@@ -9,7 +9,7 @@ String::String(char* src) {
   if (src == nullptr) return;
 
   int i = 0;
-  while (i < N && src[i] != '\0') { // Четкое ограничение по N
+  while (i < N && src[i] != '\0') { // ограничение по N
       line[i] = src[i];
       i++;
   }
