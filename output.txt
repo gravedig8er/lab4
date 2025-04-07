@@ -1,16 +1,16 @@
 List before sort
 
-ac -> nullptr
+a -> a -> a -> nullptr
 	\|/
-aa -> nullptr
+ -> nullptr
 	\|/
-b -> nullptr
+\ -> nullptr
 	\|/
-d -> nullptr
+a -> b -> c -> nullptr
 	\|/
-c -> nullptr
+a -> a -> e -> nullptr
 	\|/
-e -> nullptr
+a -> nullptr
 	\|/
 nullptr
 ==================
@@ -18,16 +18,16 @@ nullptr
 
 List after sort
 
-b -> nullptr
+ -> nullptr
 	\|/
-c -> nullptr
+\ -> nullptr
 	\|/
-d -> nullptr
+a -> nullptr
 	\|/
-e -> nullptr
+a -> a -> a -> nullptr
 	\|/
-aa -> nullptr
+a -> a -> e -> nullptr
 	\|/
-ac -> nullptr
+a -> b -> c -> nullptr
 	\|/
 nullptr

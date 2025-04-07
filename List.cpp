@@ -43,28 +43,40 @@ FormNode* List::GetHead() const {
 
 void List::sort() {
   if (!head || !head->GetNext()) return;
-
+  
+  FormNode* temp = new FormNode(); // упрощение манипуляций
+  temp->SetNext(head);
   bool swapped;
+  FormNode* last = nullptr; 
+  
   do {
-    swapped = false;
-    FormNode* current = head;
-    FormNode* prev = nullptr;
-
+    swapped = 0;
+    FormNode* prev = temp;
+    FormNode* current = temp->GetNext();
+    
     while (current && current->GetNext()) {
       FormNode* next = current->GetNext();
-
+        
       if (next->lessThan(*current)) {
-        FormNode temp(*current);
-        *current = *next;
-        *next = temp;
-        swapped = true;
+        prev->SetNext(next);
+        current->SetNext(next->GetNext());
+        next->SetNext(current);
+        
+        prev = next;
+        
+        swapped = 1;
+      } 
+      else {
+        prev = current;
+        current = next;
       }
-
-      prev = current;
-      current = current->GetNext();
     }
+    
+    last = current;
   } while (swapped);
-
-  tail = head;
-  while (tail && tail->GetNext()) tail = tail->GetNext();
+  
+  head = temp->GetNext();
+  tail = last;
+  
+  delete temp;
 }
